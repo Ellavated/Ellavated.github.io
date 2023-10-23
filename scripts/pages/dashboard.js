@@ -5,7 +5,7 @@ class DashboardPage extends Page {
 
     setup() {
         this.buildMetricsSection();
-        // this.buildRecentUpdates();
+        this.buildRecentUpdates();
     }
 
     buildMetricsSection() {
@@ -52,9 +52,9 @@ class DashboardPage extends Page {
 
             var rightText = document.createElement("span");
 
-            // if (value.src != "") {
-            //     rightText.innerHTML = METRICS[value.src].toLocaleString();
-            // }
+            if (value.src != "") {
+                rightText.innerHTML = METRICS[value.src].toLocaleString();
+            }
 
             entry.appendChild(leftText);
             entry.appendChild(rightText);
@@ -63,23 +63,23 @@ class DashboardPage extends Page {
         }
     }
 
-    // buildRecentUpdates() {
-    //     var parent = document.getElementById("recentUpdatesSection");
+    buildRecentUpdates() {
+        var parent = document.getElementById("recentUpdatesSection");
 
-    //     for (const value of RECENT_UPDATES) {
-    //         var entry = document.createElement("div");
-    //         entry.className = "recent-entry";
+        for (const value of RECENT_UPDATES) {
+            var entry = document.createElement("div");
+            entry.className = "recent-entry";
 
-    //         var profile = PROFILES[value];
+            var profile = PROFILES[value];
 
-    //         entry.innerHTML = `(${value}) ${profile.Name}`;
+            entry.innerHTML = `(${value}) ${profile.Name}`;
 
-    //         entry.addEventListener("click", function () {
-    //             showPage("Profiles");
-    //             PAGES["Profiles"].showProfile(value);
-    //         });
+            entry.addEventListener("click", function () {
+                showPage("Profiles");
+                PAGES["Profiles"].showProfile(value);
+            });
 
-    //         parent.appendChild(entry);
-    //     }
-    // }
+            parent.appendChild(entry);
+        }
+    }
 }

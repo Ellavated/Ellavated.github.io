@@ -57,32 +57,32 @@ function setupPages() {
         "Dashboard",
         new DashboardPage(document.getElementById("DashboardPage"))
     );
-    // addPage(
-    //     "Profiles",
-    //     new ProfilesPage(document.getElementById("ProfilesPage"))
-    // );
-    // addPage(
-    //     "Properties",
-    //     new PropertiesPage(document.getElementById("PropertiesPage"))
-    // );
-    // addPage(
-    //     "Employment",
-    //     new EmploymentPage(document.getElementById("EmploymentPage"))
-    // );
-    // addPage(
-    //     "Rankings",
-    //     new RankingsPage(document.getElementById("RankingsPage"))
-    // );
-    // addPage(
-    //     "Incidents",
-    //     new IncidentsPage(document.getElementById("IncidentsPage"))
-    // );
+    addPage(
+        "Profiles",
+        new ProfilesPage(document.getElementById("ProfilesPage"))
+    );
+    addPage(
+        "Properties",
+        new PropertiesPage(document.getElementById("PropertiesPage"))
+    );
+    addPage(
+        "Employment",
+        new EmploymentPage(document.getElementById("EmploymentPage"))
+    );
+    addPage(
+        "Rankings",
+        new RankingsPage(document.getElementById("RankingsPage"))
+    );
+    addPage(
+        "Incidents",
+        new IncidentsPage(document.getElementById("IncidentsPage"))
+    );
     addPage("Charges", new ChargesPage(document.getElementById("ChargesPage")));
-    // addPage("Games", new GamesPage(document.getElementById("GamesPage")));
-    // addPage(
-    //     "StreetGuesserGame",
-    //     new StreetGuesserPage(document.getElementById("StreetGuesserPage"))
-    // );
+    addPage("Games", new GamesPage(document.getElementById("GamesPage")));
+    addPage(
+        "StreetGuesserGame",
+        new StreetGuesserPage(document.getElementById("StreetGuesserPage"))
+    );
 }
 
 function showPage(targetKey) {
@@ -103,32 +103,32 @@ function showPage(targetKey) {
     setURLParam("p", targetKey);
 
     switch (targetKey) {
-        // case "Profiles":
-        //     PAGES["Profiles"].currentProfile == null
-        //         ? deleteURLParam("id")
-        //         : setURLParam("id", PAGES["Profiles"].currentProfile.StateID);
-        //     break;
+        case "Profiles":
+            PAGES["Profiles"].currentProfile == null
+                ? deleteURLParam("id")
+                : setURLParam("id", PAGES["Profiles"].currentProfile.StateID);
+            break;
 
-        // case "Properties":
-        //     PAGES["Properties"].currentProperty == null
-        //         ? deleteURLParam("id")
-        //         : setURLParam("id", PAGES["Properties"].currentProperty.Name);
-        //     break;
+        case "Properties":
+            PAGES["Properties"].currentProperty == null
+                ? deleteURLParam("id")
+                : setURLParam("id", PAGES["Properties"].currentProperty.Name);
+            break;
 
-        // case "Employment":
-        //     PAGES["Employment"].currentEmployer == null
-        //         ? deleteURLParam("id")
-        //         : setURLParam("id", PAGES["Employment"].currentEmployer.Name);
-        //     break;
+        case "Employment":
+            PAGES["Employment"].currentEmployer == null
+                ? deleteURLParam("id")
+                : setURLParam("id", PAGES["Employment"].currentEmployer.Name);
+            break;
 
-        // case "Incidents":
-        //     PAGES["Incidents"].currentIncident == null
-        //         ? deleteURLParam("id")
-        //         : setURLParam(
-        //               "id",
-        //               PAGES["Incidents"].currentIncident.IncidentID
-        //           );
-        //     break;
+        case "Incidents":
+            PAGES["Incidents"].currentIncident == null
+                ? deleteURLParam("id")
+                : setURLParam(
+                      "id",
+                      PAGES["Incidents"].currentIncident.IncidentID
+                  );
+            break;
 
         default:
             deleteURLParam("id");
@@ -152,30 +152,30 @@ function processURLQuery() {
     if (params.has("id")) targetID = decodeURIComponent(params.get("id"));
 
     switch (pageKey) {
-        // case "Profiles":
-        //     showPage("Profiles");
+        case "Profiles":
+            showPage("Profiles");
 
-        //     if (targetID != null && !isNaN(targetID))
-        //         PAGES["Profiles"].showProfile(targetID);
-        //     break;
+            if (targetID != null && !isNaN(targetID))
+                PAGES["Profiles"].showProfile(targetID);
+            break;
 
-        // case "Properties":
-        //     showPage("Properties");
+        case "Properties":
+            showPage("Properties");
 
-        //     if (targetID != null) PAGES["Properties"].showProperty(targetID);
-        //     break;
+            if (targetID != null) PAGES["Properties"].showProperty(targetID);
+            break;
 
-        // case "Employment":
-        //     showPage("Employment");
+        case "Employment":
+            showPage("Employment");
 
-        //     if (targetID != null) PAGES["Employment"].showEmployment(targetID);
-        //     break;
+            if (targetID != null) PAGES["Employment"].showEmployment(targetID);
+            break;
 
-        // case "Incidents":
-        //     showPage("Incidents");
+        case "Incidents":
+            showPage("Incidents");
 
-        //     if (targetID != null) PAGES["Incidents"].showIncident(targetID);
-        //     break;
+            if (targetID != null) PAGES["Incidents"].showIncident(targetID);
+            break;
 
         default:
             if (pageKey in PAGES) showPage(pageKey);
